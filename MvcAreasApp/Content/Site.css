@@ -1,5 +1,5 @@
 ﻿body {
-    font-size: .85em;
+    font-size: 1.25em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
     background-color: #fff;
@@ -9,6 +9,10 @@ header, footer, nav, section {
     display: block;
 }
 
+.bs-example {
+    margin: 20px;
+    width:100%;
+}
 
 /* Styles for basic forms
 -----------------------------------------------------------*/

@@ -4,18 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <ul id="menu">
-        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-        <li>@Html.ActionLink("Blog", "ShowRecent", "Blog", new { area = "blog" }, null)</li>
-        <li>@Html.ActionLink("Dashboard", "AddPost", "Dashboard", new { area = "dashboard" }, null)</li>
-        <li>@Html.ActionLink("About", "Index", "About", new { area = "" }, null)</li>
-    </ul>
-
+    <div class="bs-example">
+        <div class="btn-group">
+            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-primary" })           
+            <div class="btn-group">
+                <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Area <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Blog", "ShowRecent", "Blog", new { area = "blog" }, null)</li>
+                    <li>@Html.ActionLink("Dashboard", "AddPost", "Dashboard", new { area = "dashboard" }, null)</li>
+                </ul>
+            </div>
+            @Html.ActionLink("About", "Index", "About", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
     <p>
         Controller: @ViewContext.RouteData.Values["controller"]<br />
         Action: @ViewContext.RouteData.Values["action"]<br />
@@ -26,5 +36,9 @@
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
